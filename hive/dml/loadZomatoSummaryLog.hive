@@ -1,0 +1,1 @@
+LOAD DATA LOCAL INPATH '${log}' INTO TABLE zomato_summary_log;

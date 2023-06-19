@@ -1,0 +1,1 @@
+drop table ${dbname}.raw_zomato;

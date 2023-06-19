@@ -1,0 +1,1 @@
+LOAD DATA LOCAL INPATH '/home/talentum/zomato_etl/source/csv/zomato_*' OVERWRITE INTO TABLE ${dbname}.raw_zomato;

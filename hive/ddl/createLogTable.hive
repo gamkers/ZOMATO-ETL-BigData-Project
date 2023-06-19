@@ -1,0 +1,10 @@
+create table IF NOT EXISTS ${dbname}.zomato_summary_log(
+JobID string,
+Job_Step string,
+SparkSubmit_Cmd string,
+Job_StartTime string,
+Job_EndTime string,
+Job_Status string)
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY ','
+LOCATION '/user/talentum/zomato_etl_group_no_6/log';

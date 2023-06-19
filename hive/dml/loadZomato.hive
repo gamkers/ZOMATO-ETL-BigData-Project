@@ -1,0 +1,9 @@
+
+SET hive.exec.dynamic.partition=true;
+SET hive.exec.dynamic.partition.mode=nonstrict;
+INSERT OVERWRITE TABLE zomato PARTITION (filedate)
+SELECT res_id, name, country_id, city, address, locality, locality_verbose,
+    longitude, latitude, cuisines, average_cost_for_two, currency, has_table_booking, has_online_delivery,
+    is_delivering_now, switch_to_order_menu, price_range, aggregate_rating, rating_text, votes,
+    SUBSTR(INPUT__FILE__NAME, -2, 17) AS filedate
+FROM raw_zomato;

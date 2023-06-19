@@ -1,0 +1,7 @@
+create external table IF NOT EXISTS ${dbname}.dim_country(
+country_code INT,
+country STRING
+)ROW FORMAT DELIMITED
+FIELDS TERMINATED BY ','
+LOCATION '/user/talentum/zomato_etl_group_no_6/zomato_ext/dim_country'
+tblproperties("skip.header.line.count"="1");

@@ -1,0 +1,1 @@
+110523051683805368,module_1,spark-submit --master yarn --deploy-mode cluster --driver-memory 2g --num-executors 2 --executor-memory 1g ~/zomato_etl/spark/py/conversion.py/conversion.py,2023-05-11_17:12:48,2023-05-11_17:14:26,SUCCESS

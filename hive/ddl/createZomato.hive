@@ -1,0 +1,55 @@
+create table IF NOT EXISTS ${dbname}.raw_zomato(
+res_id BIGINT,
+name STRING,
+country_id INT,
+city STRING,
+address STRING,
+locality STRING,
+locality_verbose STRING,
+longitude STRING,
+latitude STRING,
+cuisines STRING,
+average_cost_for_two INT,
+currency STRING,
+has_table_booking INT,
+has_online_delivery INT,
+is_delivering_now INT,
+switch_to_order_menu INT,
+price_range INT,
+aggregate_rating DOUBLE,
+rating_text STRING,
+votes BIGINT
+)ROW FORMAT DELIMITED
+FIELDS TERMINATED BY '\t';
+
+
+create external table IF NOT EXISTS ${dbname}.zomato(
+res_id BIGINT,
+name STRING,
+country_id INT,
+city STRING,
+address STRING,
+locality STRING,
+locality_verbose STRING,
+longitude STRING,
+latitude STRING,
+cuisines STRING,
+average_cost_for_two INT,
+currency STRING,
+has_table_booking INT,
+has_online_delivery INT,
+is_delivering_now INT,
+switch_to_order_menu INT,
+price_range INT,
+aggregate_rating DOUBLE,
+rating_text STRING,
+votes BIGINT
+)PARTITIONED BY (filedate STRING)
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY '\t'
+LOCATION '/user/talentum/zomato_etl_group_no_6/zomato_ext/zomato'
+TBLPROPERTIES ('external.table.purge'='true');
+
+
+
+
